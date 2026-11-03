@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jacob Rauscher | Electrical Engineer</title>
+<meta name="description" content="Jacob Rauscher, MSEE student at USF (Automation and Control Systems). Embedded systems, robotics, wearable sensing, and hardware design.">
+<meta property="og:title" content="Jacob Rauscher | Electrical Engineer">
+<meta property="og:description" content="MSEE student at USF building embedded, robotic, and wearable systems.">
+<meta property="og:image" content="headshot.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><text x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='white'>JR</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8f6; --surface:#ffffff; --ink:#14181a; --muted:#5b6569; --line:#e2e6e3;
+  --accent:#0f766e; --accent-soft:#e3f2ef; --chip:#eef1ef;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1214; --surface:#151b1e; --ink:#e8ecea; --muted:#9aa5a8; --line:#253034;
+    --accent:#2dd4bf; --accent-soft:#12302c; --chip:#1c2427; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1214; --surface:#151b1e; --ink:#e8ecea; --muted:#9aa5a8; --line:#253034;
+  --accent:#2dd4bf; --accent-soft:#12302c; --chip:#1c2427; --shadow:none;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.brand{font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.links{display:flex;gap:20px;font-size:14px;align-items:center}
+.links a{color:var(--muted)}
+.links a:hover{color:var(--ink);text-decoration:none}
+#theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:15px}
+@media (max-width:720px){.links a.hide-sm{display:none}}
+
+/* hero */
+.hero{padding-top:72px;padding-bottom:56px;display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:center}
+.eyebrow{font-size:13px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+h1{font-size:clamp(36px,6vw,56px);line-height:1.05;letter-spacing:-.03em;margin:10px 0 16px}
+.lead{font-size:18px;color:var(--muted);max-width:56ch}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#04201c}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#04201c}}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+.portrait{width:260px;height:260px;border-radius:20px;object-fit:cover;box-shadow:var(--shadow);border:1px solid var(--line)}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px;gap:28px}
+  .portrait{width:140px;height:140px;order:-1;border-radius:16px}
+}
+
+/* sections */
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin-bottom:28px;display:flex;align-items:center;gap:10px}
+h2 .num{color:var(--accent)}
+h3{font-size:20px;letter-spacing:-.01em;line-height:1.3}
+
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.about p{margin-bottom:14px}
+.facts{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);align-self:start}
+.facts dt{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:12px}
+.facts dt:first-child{margin-top:0}
+.facts dd{font-weight:500}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+/* projects */
+.projects{display:grid;gap:22px}
+.proj{display:grid;grid-template-columns:320px 1fr;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.proj .media{background:var(--chip);min-height:220px;position:relative}
+.proj .media img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.proj .body{padding:24px 26px}
+.proj .when{font-size:13px;color:var(--muted)}
+.proj h3{margin:4px 0 10px}
+.proj ul{padding-left:18px;color:var(--ink)}
+.proj li{margin-bottom:6px}
+.proj li::marker{color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:500}
+.ring-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+@media (max-width:760px){.proj{grid-template-columns:1fr}.proj .media{min-height:220px}}
+
+/* timeline */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.item{position:relative;margin-bottom:30px}
+.item::before{content:"";position:absolute;left:-26px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
+.item .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.item .org{color:var(--muted);font-weight:500}
+.item .date{font-size:13px;color:var(--muted)}
+.item ul{padding-left:18px;margin-top:8px}
+.item li{margin-bottom:4px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.skill h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;padding:4px 10px;border-radius:8px;background:var(--chip)}
+
+/* strengths */
+.strengths{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.str{padding:4px 0}
+.str b{display:block;margin-bottom:4px}
+.str p{color:var(--muted);font-size:15px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery figure{border-radius:12px;overflow:hidden;background:var(--chip);position:relative;aspect-ratio:3/4}
+.gallery figure.wide{grid-column:span 2;aspect-ratio:auto}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;font-size:13px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr}.gallery figure.wide{grid-column:span 2}}
+
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.cert{display:flex;justify-content:space-between;gap:10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:14px}
+.cert span:last-child{color:var(--muted);white-space:nowrap}
+
+.contact{text-align:center;padding:72px 0}
+.contact h3{font-size:30px;letter-spacing:-.02em;margin-bottom:10px}
+.contact p{color:var(--muted);margin-bottom:26px}
+.contact .cta{justify-content:center}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">Jacob Rauscher</a>
+  <div class="links">
+    <a href="#about" class="hide-sm">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience" class="hide-sm">Experience</a>
+    <a href="#skills" class="hide-sm">Skills</a>
+    <a href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle color theme">◐</button>
+  </div>
+</div></nav>
+
+<header class="wrap hero" id="top">
+  <div>
+    <div class="eyebrow mono">Electrical Engineer · MSEE @ USF</div>
+    <h1>I build hardware that thinks and moves.</h1>
+    <p class="lead">Graduate student in Automation and Control Systems at the University of South Florida and Electrical Engineering Intern at SEL. I work across embedded systems, sensing, and robotics, and I like taking an idea all the way from schematic to something you can hold.</p>
+    <div class="cta">
+      <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">View resume</a>
+      <a class="btn" href="https://www.linkedin.com/in/jacoberauscher" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#projects">See projects ↓</a>
+    </div>
+    <div class="meta mono">
+      <span>📍 Tampa, FL</span>
+      <span>🎓 BSEE, Summa Cum Laude</span>
+      <span>⚡ Open to opportunities</span>
+    </div>
+  </div>
+  <img class="portrait" src="headshot.jpg" alt="Portrait of Jacob Rauscher">
+</header>
+
+<section id="about"><div class="wrap">
+  <h2><span class="num mono">01</span> About</h2>
+  <div class="about">
+    <div>
+      <p>I finished my BS in Electrical Engineering at USF in May 2026 with a 3.92 GPA, and I'm now in the accelerated MSEE program focused on Automation and Control Systems. My thesis is STAR, a smart ring that turns hand motion into custom gesture controls.</p>
+      <p>Most of what I've learned has come from building things. A 3D scanning app with three teammates, an analog wah pedal on a breadboard, mounting hardware for a robot dog, protection relay settings for a real utility project. The common thread is that I like the full loop: design it, break it, figure out why, and ship something that works.</p>
+      <p>Long term, I want to start a company that brings mechatronics and AI together. Outside of engineering, I climb (and set routes at the USF bouldering wall), play guitar, and usually have a DIY electronics project on the bench.</p>
+    </div>
+    <dl class="facts">
+      <dt>Currently</dt><dd>MSEE, Automation &amp; Control Systems, USF (exp. Dec 2027)</dd>
+      <dt>Working at</dt><dd>Schweitzer Engineering Laboratories (SEL), Engineering Services</dd>
+      <dt>Thesis</dt><dd>STAR: Smart Telemetric Action Ring</dd>
+      <dt>Focus areas</dt><dd>Embedded systems · Robotics · Wearables · Applied ML</dd>
+      <dt>Off the clock</dt><dd>Climbing · Route setting · Guitar · Making</dd>
+    </dl>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2><span class="num mono">02</span> Projects</h2>
+  <div class="projects">
+
+    <article class="proj">
+      <div class="media">
+        <div class="ring-art">
+          <svg viewBox="0 0 240 200" width="80%" aria-label="Illustration of a smart ring with motion axes">
+            <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#0f766e"/></linearGradient></defs>
+            <ellipse cx="120" cy="110" rx="62" ry="62" fill="none" stroke="url(#rg)" stroke-width="18"/>
+            <rect x="96" y="38" width="48" height="24" rx="6" fill="#0f766e" stroke="#2dd4bf" stroke-width="2"/>
+            <circle cx="110" cy="50" r="3" fill="#2dd4bf"/><circle cx="130" cy="50" r="3" fill="#2dd4bf"/>
+            <g stroke="currentColor" stroke-width="2" fill="none" opacity=".55" style="color:var(--muted)">
+              <path d="M120 50 L120 8"/><path d="M114 14 L120 6 L126 14"/>
+              <path d="M120 50 L170 30"/><path d="M162 26 L172 29 L166 37"/>
+              <path d="M120 50 L72 28"/><path d="M80 24 L70 27 L75 36"/>
+              <path d="M30 150 q20 -30 40 0 t40 0" />
+              <path d="M130 150 q20 -30 40 0 t40 0" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="body">
+        <div class="when mono">MSEE Thesis · Aug 2026 – Present</div>
+        <h3>STAR: Smart Telemetric Action Ring</h3>
+        <ul>
+          <li>Designing a ring-sized wearable gesture controller with an IMU, Bluetooth LE, haptic feedback, and Qi wireless charging for smart device control.</li>
+          <li>Developing a custom gesture classification approach on raw IMU time-series so users can define their own gestures from just a few training examples.</li>
+        </ul>
+        <div class="tags"><span class="tag">nRF5340</span><span class="tag">LSM6DSO IMU</span><span class="tag">BLE</span><span class="tag">Haptics</span><span class="tag">Qi charging</span><span class="tag">Machine learning</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="media"><img src="splatmotion-poster.jpg" alt="SplatMotion senior design poster"></div>
+      <div class="body">
+        <div class="when mono">Senior Design for ISO Technologies Inc. · Aug 2025 – May 2026</div>
+        <h3>SplatMotion: 3D Scanning on Android</h3>
+        <ul>
+          <li>Built with a 4-person team for a sponsor: record a short phone video and get back a viewable, exportable 3D mesh. No special hardware or depth sensors.</li>
+          <li>Architected the pipeline: ARCore-enabled Android capture (Kotlin), COLMAP camera pose estimation, 3D Gaussian Splatting, SuGaR surface extraction, and Ball-Pivoting mesh generation, served through FastAPI on a cloud GPU.</li>
+          <li>Debugged and optimized the pipeline by isolating checkpoint corruption, phantom mesh geometry, and coordinate frame mismatches, then tuned reconstruction parameters to improve mesh fidelity.</li>
+        </ul>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">ARCore</span><span class="tag">COLMAP</span><span class="tag">Gaussian Splatting</span><span class="tag">FastAPI</span><span class="tag">GCP</span><span class="tag">Three.js</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="media"><img src="wah-pedal-demo.jpg" alt="Jacob playing guitar through his analog wah pedal at the IEEE Expo" style="object-position:center 30%"></div>
+      <div class="body">
+        <div class="when mono">IEEE Workshop · USF Engineering Expo · Jan – May 2026</div>
+        <h3>Analog Wah Pedal</h3>
+        <ul>
+          <li>Designed, built, and tuned an analog wah effects pedal from scratch, prototyping a swept band-pass filter on a breadboard and tuning the circuit for the desired center-frequency range and resonance (Q).</li>
+          <li>Modeled and validated the filter with an oscilloscope and function generator, characterizing frequency response and signal integrity across the audio band.</li>
+          <li>Designed a custom 3D-printed enclosure and rocker mechanism, then demoed it live for Expo visitors of all ages. PCB version in progress in Altium.</li>
+        </ul>
+        <div class="tags"><span class="tag">Analog design</span><span class="tag">Active filters</span><span class="tag">Altium</span><span class="tag">3D printing</span><span class="tag">Test &amp; measurement</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="media" style="background:linear-gradient(135deg,var(--accent-soft),var(--chip))">
+        <div class="ring-art mono" style="font-size:44px;color:var(--accent);font-weight:600">RARE&nbsp;Lab</div>
+      </div>
+      <div class="body">
+        <div class="when mono">Undergraduate Research, Design Lead · Aug 2025 – Jan 2026</div>
+        <h3>AR Fog Screen Projector for a Robot Dog</h3>
+        <ul>
+          <li>Led mechanical design of custom mounting hardware for an Augmented Reality Fog Screen Projector on a Unitree GO2 robot dog: designing, 3D printing, and assembling all parts in SolidWorks.</li>
+          <li>Independently researched electronics and hardware requirements for the platform and delivered reliable mechanical solutions.</li>
+        </ul>
+        <div class="tags"><span class="tag">SolidWorks</span><span class="tag">Unitree GO2</span><span class="tag">Robotics</span><span class="tag">3D printing</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="media" style="background:linear-gradient(135deg,var(--chip),var(--accent-soft))">
+        <div class="ring-art mono" style="font-size:40px;color:var(--accent);font-weight:600">MSP430</div>
+      </div>
+      <div class="body">
+        <div class="when mono">Embedded Systems Coursework</div>
+        <h3>Wireless RC Car &amp; PWM Motor Controller</h3>
+        <ul>
+          <li>Wireless RC car controller chain: PS4 controller to Python to ESP32 over UDP to MSP430 driving servo and motor. Debugged I2C bus conflicts, UART pin collisions, and driver overcurrent.</li>
+          <li>PWM motor speed controller on the MSP430FR2355 with an L298N driver, LCD, and matrix keypad interface.</li>
+        </ul>
+        <div class="tags"><span class="tag">C</span><span class="tag">MSP430</span><span class="tag">ESP32</span><span class="tag">Python</span><span class="tag">I2C / UART</span><span class="tag">PWM</span></div>
+      </div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2><span class="num mono">03</span> Experience &amp; Education</h2>
+  <div class="tl">
+    <div class="item">
+      <div class="row"><h3>Electrical Engineering Intern</h3><span class="date mono">Apr 2026 – Present</span></div>
+      <div class="org">Schweitzer Engineering Laboratories (SEL) · Engineering Services</div>
+      <ul>
+        <li>Configured reclosing logic on an SEL-700G generator protection relay for a TECO project, translating protection requirements into field-ready settings.</li>
+        <li>Modeled inverter-based resource (IBR) sites and compared response to Ride-Through conditions to test PRC-29 standards, and authored technical reports on performance results and design findings.</li>
+        <li>Produced and reviewed CAD drafting deliverables for accuracy and design intent, coordinating across multiple engineering teams.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="row"><h3>Route Setter</h3><span class="date mono">Sep 2026 – Present</span></div>
+      <div class="org">USF Bouldering Wall, Campus Recreation</div>
+      <ul><li>Pitched a safer spray-wall section to the Rec Wall director after noticing climbers improvising risky moves, which turned into a route-setting role.</li></ul>
+    </div>
+    <div class="item">
+      <div class="row"><h3>Undergraduate Researcher, Design Lead</h3><span class="date mono">Aug 2025 – Jan 2026</span></div>
+      <div class="org">RARE Lab, University of South Florida</div>
+    </div>
+    <div class="item">
+      <div class="row"><h3>M.S. Electrical Engineering (Accelerated)</h3><span class="date mono">Expected Dec 2027</span></div>
+      <div class="org">University of South Florida · Automation and Control Systems</div>
+      <ul><li>Coursework: Machine Learning, Deep Learning, Embedded Systems, Applied Mechatronics, Applied Optimization, Applied Industrial AI</li></ul>
+    </div>
+    <div class="item">
+      <div class="row"><h3>B.S. Electrical Engineering, Summa Cum Laude</h3><span class="date mono">May 2026 · GPA 3.92</span></div>
+      <div class="org">University of South Florida</div>
+      <ul><li>Coursework: Programming with C, Computer Aided Design &amp; Engineering, Electrical Systems I &amp; II, Linear Control Systems, Signals &amp; Systems, Embedded Systems, Mechatronics Systems, Microprocessor Principles</li></ul>
+    </div>
+    <div class="item">
+      <div class="row"><h3>Earlier work</h3><span class="date mono">2022 – 2024</span></div>
+      <div class="org">Richie's Automotive (summer intern) · McDonald's (crew member)</div>
+      <ul><li>Hands-on automotive maintenance, teamwork in fast-paced environments, and a lot of time management.</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2><span class="num mono">04</span> Skills</h2>
+  <div class="skills">
+    <div class="skill"><h4>Programming</h4><div class="chips"><span class="chip">Python</span><span class="chip">C / C++</span><span class="chip">MATLAB</span><span class="chip">Simulink</span><span class="chip">RSLogix 5000 (Ladder)</span><span class="chip">JavaScript</span><span class="chip">Kotlin</span><span class="chip">HTML</span></div></div>
+    <div class="skill"><h4>Engineering &amp; CAD</h4><div class="chips"><span class="chip">SolidWorks</span><span class="chip">AutoCAD</span><span class="chip">Altium Designer</span><span class="chip">PCB Design</span><span class="chip">3D Printing</span></div></div>
+    <div class="skill"><h4>Embedded &amp; Hardware</h4><div class="chips"><span class="chip">MSP430</span><span class="chip">ESP32</span><span class="chip">nRF5340</span><span class="chip">Arduino</span><span class="chip">Microcontrollers</span><span class="chip">Soldering</span><span class="chip">Breadboarding</span></div></div>
+    <div class="skill"><h4>Lab &amp; Controls</h4><div class="chips"><span class="chip">Oscilloscopes</span><span class="chip">Function generators</span><span class="chip">Multimeters</span><span class="chip">PID tuning</span><span class="chip">PSpice</span><span class="chip">LTspice</span><span class="chip">Protection relays</span></div></div>
+    <div class="skill"><h4>ML &amp; Vision</h4><div class="chips"><span class="chip">Time-series classification</span><span class="chip">COLMAP</span><span class="chip">Gaussian Splatting</span><span class="chip">FastAPI</span><span class="chip">Cloud GPU (GCP)</span></div></div>
+  </div>
+
+  <h2 style="margin-top:48px"><span class="num mono">··</span> Strengths</h2>
+  <div class="strengths">
+    <div class="str"><b>Full-stack hardware</b><p>Comfortable moving between circuits, firmware, mechanical CAD, and the software that ties it together.</p></div>
+    <div class="str"><b>Persistent debugger</b><p>I like the hard part: isolating why a pipeline, bus, or circuit breaks, and fixing the root cause.</p></div>
+    <div class="str"><b>Proactive builder</b><p>When I see something that could be better, I propose a fix and follow through on it.</p></div>
+    <div class="str"><b>Clear communicator</b><p>Technical reports at SEL, expo demos for fifth graders, and everything in between.</p></div>
+  </div>
+</div></section>
+
+<section id="life"><div class="wrap">
+  <h2><span class="num mono">05</span> In the field</h2>
+  <div class="gallery">
+    <figure class="wide"><img src="expo-outreach.jpg" alt="Visitors trying the wah pedal at the USF Engineering Expo"><figcaption>Engineering Expo 2026 outreach</figcaption></figure>
+    <figure><img src="nano-forum.jpg" alt="Jacob at the USF Nano Forum"><figcaption>USF Nano Forum</figcaption></figure>
+    <figure><img src="route-setting.jpg" alt="Route setting at the USF bouldering wall"><figcaption>Setting routes at the Rec Wall</figcaption></figure>
+    <figure class="wide"><img src="wah-pedal-rig.jpg" alt="Guitar, amp, and wah pedal test rig"><figcaption>Wah pedal test rig</figcaption></figure>
+    <figure class="wide" style="aspect-ratio:auto;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;padding:24px">
+      <div>
+        <div class="mono" style="font-size:13px;color:var(--accent);margin-bottom:8px">CERTIFICATIONS</div>
+        <div style="font-size:15px;line-height:1.8">Learning Altium · Learning Soldering for Electronics (LinkedIn, 2026)<br>AI-Powered JavaScript · AI Professional Skills · Intercultural Skills (The Career Accelerator, 2025)<br>SolidWorks · MATLAB · Simulink · Microsoft Office Specialist</div>
+      </div>
+    </figure>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h3>Let's build something.</h3>
+  <p>Open to internships, full-time roles, and research collaborations in embedded systems, controls, and robotics.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:jacobr2@usf.edu">Email me</a>
+    <a class="btn" href="https://www.linkedin.com/in/jacoberauscher" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Jacob Rauscher · Tampa, FL</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark = root.getAttribute('data-theme')==='dark' || (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
