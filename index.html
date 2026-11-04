@@ -225,22 +225,8 @@ footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(
     </article>
 
     <article class="proj">
-      <div class="media">
-        <div class="ring-art">
-          <svg viewBox="0 0 240 200" width="80%" aria-label="Illustration of a smart ring with motion axes">
-            <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#0f766e"/></linearGradient></defs>
-            <ellipse cx="120" cy="110" rx="62" ry="62" fill="none" stroke="url(#rg)" stroke-width="18"/>
-            <rect x="96" y="38" width="48" height="24" rx="6" fill="#0f766e" stroke="#2dd4bf" stroke-width="2"/>
-            <circle cx="110" cy="50" r="3" fill="#2dd4bf"/><circle cx="130" cy="50" r="3" fill="#2dd4bf"/>
-            <g stroke="currentColor" stroke-width="2" fill="none" opacity=".55" style="color:var(--muted)">
-              <path d="M120 50 L120 8"/><path d="M114 14 L120 6 L126 14"/>
-              <path d="M120 50 L170 30"/><path d="M162 26 L172 29 L166 37"/>
-              <path d="M120 50 L72 28"/><path d="M80 24 L70 27 L75 36"/>
-              <path d="M30 150 q20 -30 40 0 t40 0" />
-              <path d="M130 150 q20 -30 40 0 t40 0" />
-            </g>
-          </svg>
-        </div>
+      <div class="media" style="background:#1b1b1b">
+        <img src="star-tube.jpg" alt="3D probability tube built from ten recorded square gestures" style="object-fit:cover;object-position:72% 50%">
       </div>
       <div class="body">
         <div class="when mono">MSEE Thesis · Aug 2026 – Present</div>
@@ -248,8 +234,11 @@ footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(
         <ul>
           <li>Designing a ring-sized wearable gesture controller with an IMU, Bluetooth LE, haptic feedback, and Qi wireless charging for smart device control.</li>
           <li>Developing a custom gesture classification approach on raw IMU time-series so users can define their own gestures from just a few training examples.</li>
+          <li>Built a from-scratch Python pipeline (sensor filtering, orientation tracking, gesture segmentation, matching) plus a physics-based ring IMU simulator for testing, and benchmarked several recognition methods against each other.</li>
+          <li>Designed it to reject everyday motion and ask for a retry when unsure, instead of firing the wrong command. Early results on simulated data reach roughly 95% top-1 accuracy with about 1% bad accepts; real-ring testing is next.</li>
+          <li>Visual: ten varied recordings of the same square gesture (noise, tremor, size, tilt) merged into one 3D probability "tube" used as the gesture's fingerprint.</li>
         </ul>
-        <div class="tags"><span class="tag">nRF5340</span><span class="tag">LSM6DSO IMU</span><span class="tag">BLE</span><span class="tag">Haptics</span><span class="tag">Qi charging</span><span class="tag">Machine learning</span></div>
+        <div class="tags"><span class="tag">nRF5340</span><span class="tag">LSM6DSO IMU</span><span class="tag">BLE</span><span class="tag">Haptics</span><span class="tag">Qi charging</span><span class="tag">Machine learning</span><span class="tag">Python</span><span class="tag">Signal processing</span></div>
       </div>
     </article>
 
